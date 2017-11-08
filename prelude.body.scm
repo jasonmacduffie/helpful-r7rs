@@ -2,6 +2,30 @@
 (define (value->procedure val)
   (lambda () val))
 
+(define (list->procedure l)
+  (lambda (i)
+    (list-ref l i)))
+
+(define (vector->procedure v)
+  (lambda (i)
+    (vector-ref v i)))
+
+(define (string->procedure s)
+  (lambda (i)
+    (string-ref s i)))
+
+(define (assq->procedure al)
+  (lambda (key)
+    (cdr (assq key al))))
+
+(define (assv->procedure al)
+  (lambda (key)
+    (cdr (assv key al))))
+
+(define (assoc->procedure al)
+  (lambda (key)
+    (cdr (assoc key al))))
+
 (define (mapassoc key lis)
   (map (lambda (i)
          (assoc key i))

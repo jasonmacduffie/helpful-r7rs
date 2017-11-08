@@ -11,6 +11,8 @@
           print memoize memoize-testing atom? flatten
           pair-conjugate complex-conjugate integer->hex integer->bin
           bin->integer hex->integer hex->bin bin->hex
-          color-string->triplet triplet->color-string)
+          color-string->triplet triplet->color-string
+          list->procedure vector->procedure string->procedure
+          assq->procedure assv->procedure assoc->procedure)
   (include "prelude.body.scm"))
 
