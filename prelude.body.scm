@@ -1,5 +1,5 @@
 
-(define (make-thunk val)
+(define (value->procedure val)
   (lambda () val))
 
 (define (mapassoc key lis)
@@ -7,11 +7,11 @@
          (assoc key i))
        lis))
 
-(define e (make-thunk 2.71828182845904523))
+(define e (value->procedure 2.71828182845904523))
 
-(define pi (make-thunk 3.14159265358979323))
+(define pi (value->procedure 3.14159265358979323))
 
-(define i (make-thunk 0+i))
+(define i (value->procedure 0+i))
 
 (define (assq-ref al k)
   (cdr (assq k al)))
