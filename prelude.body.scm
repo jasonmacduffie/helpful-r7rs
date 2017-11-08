@@ -26,11 +26,6 @@
   (lambda (key)
     (cdr (assoc key al))))
 
-(define (mapassoc key lis)
-  (map (lambda (i)
-         (assoc key i))
-       lis))
-
 (define e (value->procedure 2.71828182845904523))
 
 (define pi (value->procedure 3.14159265358979323))
