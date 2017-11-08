@@ -109,14 +109,15 @@
   (+ (real-part p) (* 0-i (imag-part p))))
 
 (define (integer->hex n)
-  (define hex-selection-alist
-    '((0 . #\0) (1 . #\1) (2 . #\2) (3 . #\3) (4 . #\4)
-      (5 . #\5) (6 . #\6) (7 . #\7) (8 . #\8) (9 . #\9)
-      (10 . #\a) (11 . #\b) (12 . #\c) (13 . #\d)
-      (14 . #\e) (15 . #\f)))
+  (define hex-selection
+    (assv->procedure
+     '((0 . #\0) (1 . #\1) (2 . #\2) (3 . #\3) (4 . #\4)
+       (5 . #\5) (6 . #\6) (7 . #\7) (8 . #\8) (9 . #\9)
+       (10 . #\a) (11 . #\b) (12 . #\c) (13 . #\d)
+       (14 . #\e) (15 . #\f))))
     
   (define (build-hex next-num previous-list)
-    (cons (cdr (assv (modulo next-num 16) hex-selection-alist))
+    (cons (hex-selection (modulo next-num 16))
           previous-list))
 
   (when (or (negative? n) (not (integer? n)))
@@ -145,14 +146,15 @@
               (build-bin in out)))))
 
 (define (hex->integer h)
-  (define hex-deselection-alist
-    '((#\0 . 0) (#\1 . 1) (#\2 . 2) (#\3 . 3) (#\4 . 4)
-      (#\5 . 5) (#\6 . 6) (#\7 . 7) (#\8 . 8) (#\9 . 9)
-      (#\a . 10) (#\b . 11) (#\c . 12) (#\d . 13)
-      (#\e . 14) (#\f . 15)))
+  (define hex-deselection
+    (assv->procedure
+     '((#\0 . 0) (#\1 . 1) (#\2 . 2) (#\3 . 3) (#\4 . 4)
+       (#\5 . 5) (#\6 . 6) (#\7 . 7) (#\8 . 8) (#\9 . 9)
+       (#\a . 10) (#\b . 11) (#\c . 12) (#\d . 13)
+       (#\e . 14) (#\f . 15))))
 
   (define (debuild-hex next-char previous-num)
-    (+ (cdr (assv (char-downcase next-char) hex-deselection-alist))
+    (+ (hex-deselection (char-downcase next-char))
        (* 16 previous-num)))
 
   (let loop ((in (string->list h)) (out 0))

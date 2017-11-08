@@ -5,6 +5,7 @@
   (import
     (scheme base)
     (scheme case-lambda)
+    (scheme char)
     (scheme write)
     (scheme inexact))
   (export value->procedure pi e i mapassoc assq-ref assv-ref assoc-ref
