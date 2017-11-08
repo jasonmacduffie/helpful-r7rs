@@ -1,11 +1,12 @@
 
-(define-library (macduffie prelude)
+(define-library (macduffie helpful)
   ;; This is a general library of procedures I find useful that don't
   ;; fit in any particular library.
   (import
     (scheme base)
     (scheme case-lambda)
     (scheme char)
+    (scheme complex)
     (scheme write)
     (scheme inexact))
   (export value->procedure pi e i assq-ref assv-ref assoc-ref
@@ -15,5 +16,5 @@
           color-string->triplet triplet->color-string
           list->procedure vector->procedure string->procedure
           assq->procedure assv->procedure assoc->procedure)
-  (include "prelude.body.scm"))
+  (include "helpful.body.scm"))
 

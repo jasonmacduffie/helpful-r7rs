@@ -101,7 +101,7 @@
   (cons (cdr p) (car p)))
 
 (define (complex-conjugate c)
-  (+ (real-part p) (* 0-i (imag-part p))))
+  (+ (real-part c) (* 0-i (imag-part c))))
 
 (define (integer->hex n)
   (define hex-selection
