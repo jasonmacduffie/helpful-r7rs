@@ -15,6 +15,7 @@
           bin->integer hex->integer hex->bin bin->hex
           color-string->triplet triplet->color-string
           list->procedure vector->procedure string->procedure
-          assq->procedure assv->procedure assoc->procedure)
+          assq->procedure assv->procedure assoc->procedure
+          test-for-each?)
   (include "helpful.body.scm"))
 

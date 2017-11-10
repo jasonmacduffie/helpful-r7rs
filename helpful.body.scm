@@ -237,3 +237,6 @@
                               (pad-left (integer->hex n) 2 #\0))
                             trip)))
 
+(define (test-for-each? proc l . rest)
+  (let ((test-result (apply map proc l rest)))
+    (not (memv #f test-result))))
