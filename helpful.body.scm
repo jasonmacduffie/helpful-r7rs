@@ -240,3 +240,14 @@
 (define (test-for-each? proc l . rest)
   (let ((test-result (apply map proc l rest)))
     (not (memv #f test-result))))
+
+(define (properize p)
+  (if (pair? (cdr p))
+      (cons (car p) (properize (cdr p)))
+      (list (car p) (cdr p))))
+
+(define (improperize p)
+  (if (pair? (cddr p))
+      (cons (car p) (improperize (cdr p)))
+      (cons (car p) (cadr p))))
+
