@@ -26,12 +26,6 @@
   (lambda (key)
     (cdr (assoc key al))))
 
-(define e (value->procedure 2.71828182845904523))
-
-(define pi (value->procedure 3.14159265358979323))
-
-(define i (value->procedure 0+i))
-
 (define (assq-ref al k)
   (cdr (assq k al)))
 
