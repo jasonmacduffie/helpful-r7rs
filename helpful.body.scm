@@ -245,3 +245,9 @@
       (cons (car p) (improperize (cdr p)))
       (cons (car p) (cadr p))))
 
+(define-syntax assert
+  (syntax-rules ()
+    ((_ expr)
+     (unless expr
+       (error "Assertion failed" 'expr)))))
+
