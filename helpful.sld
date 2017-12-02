@@ -16,6 +16,6 @@
           color-string->triplet triplet->color-string
           list->procedure vector->procedure string->procedure
           assq->procedure assv->procedure assoc->procedure
-          test-for-each? properize improperize assert)
+          test-for-each? properize improperize assert logging)
   (include "helpful.body.scm"))
 

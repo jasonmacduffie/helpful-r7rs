@@ -251,3 +251,22 @@
      (unless expr
        (error "Assertion failed" 'expr)))))
 
+(define-syntax logging
+  (syntax-rules ()
+    ((_ (expr ...))
+     (begin
+       (display "LOGGING: ")
+       (write '(expr ...))
+       (newline)))
+    ((_ expr)
+     (begin
+       (display "LOGGING: ")
+       (write 'expr)
+       (display " = ")
+       (write expr)
+       (newline)))
+    ((_ expr rest ...)
+     (begin
+       (logging expr)
+       (logging rest ...)))))
+
