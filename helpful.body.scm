@@ -270,3 +270,14 @@
        (logging expr)
        (logging rest ...)))))
 
+(define (read-entire-file path)
+  (define p (open-input-file path))
+  (let loop ((out '())
+             (next-char (read-char p)))
+    (if (eof-object? next-char)
+        (let ((result (list->string (reverse out))))
+          (close-input-port p)
+          result)
+        (loop (cons next-char out)
+              (read-char p)))))
+
