@@ -18,6 +18,6 @@
           list->procedure vector->procedure string->procedure
           assq->procedure assv->procedure assoc->procedure
           test-for-each? properize improperize assert logging
-          read-entire-file)
+          read-entire-file join)
   (include "helpful.body.scm"))
 

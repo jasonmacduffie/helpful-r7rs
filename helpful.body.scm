@@ -281,3 +281,16 @@
         (loop (cons next-char out)
               (read-char p)))))
 
+(define (join joiner proc a b)
+  (define (join-on-b a-val)
+    (let loop ((out '())
+               (in b))
+      (if (null? in)
+          (reverse out)
+          (loop (if (proc a-val (car in))
+                    (cons (joiner a-val (car in))
+                          out)
+                    out)
+                (cdr in)))))
+  (apply append (map join-on-b a)))
+
